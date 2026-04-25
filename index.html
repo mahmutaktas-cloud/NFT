@@ -11,18 +11,19 @@
     <nav class="navbar">
         <div class="logo">NORYX<span>NFT</span></div>
         <ul class="nav-links">
-            <li><a href="#" onclick="showPage('home')">Ana Sayfa</a></li>
-            <li><a href="#" onclick="showPage('auctions')">Açık Artırma</a></li>
-            <li><a href="#" onclick="showPage('collection')">Koleksiyon</a></li>
-            <li><a href="#" onclick="showPage('nftinfo')">NFT Nedir?</a></li>
-            <li><a href="#" onclick="showPage('about')">Hakkımızda</a></li>
-            <li><a href="#" onclick="showPage('contact')">İletişim</a></li>
+            <li><a href="#" data-page="home" onclick="showPage('home')">Ana Sayfa</a></li>
+            <li><a href="#" data-page="auctions" onclick="showPage('auctions')">Açık Artırma</a></li>
+            <li><a href="#" data-page="collection" onclick="showPage('collection')">Koleksiyon</a></li>
+            <li><a href="#" data-page="nftinfo" onclick="showPage('nftinfo')">NFT Nedir?</a></li>
+            <li><a href="#" data-page="about" onclick="showPage('about')">Hakkımızda</a></li>
+            <li><a href="#" data-page="contact" onclick="showPage('contact')">İletişim</a></li>
             <li><button class="btn-connect" onclick="connectWallet()">Cüzdan Bağla</button></li>
         </ul>
     </nav>
 
     <main id="home" class="page active">
         <header class="hero">
+            <canvas id="particleCanvas"></canvas>
             <div class="hero-content">
                 <h1>Dijital Sanatın <span>Zirvesi</span></h1>
                 <p>Maymunlar, Arabalar ve Glitch sanatıyla dolu eşsiz bir evrene hoş geldiniz.</p>
@@ -133,7 +134,6 @@
                 </div>
             </div>
 
-            
             <div class="nft-how-card">
                 <h3>⚙️ Nasıl Çalışır?</h3>
                 <p>NFT'ler genellikle <strong>Ethereum</strong> blokzinciri üzerinde işlem görür, ancak <strong>Solana</strong> ve <strong>Polygon</strong> gibi diğer ağlar da yaygınlaşmıştır. Bir varlık NFT'ye dönüştürüldüğünde (bu işleme <span class="highlight-text">"Minting"</span> denir), o varlığın geçmişi, sahibi ve teknik bilgileri blokzincirine silinmez bir şekilde kazınır.</p>
