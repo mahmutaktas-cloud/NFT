@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORYXNFT | Premium Market</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">NORYX<span>NFT</span></div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Ana Sayfa</a></li>
+            <li><a href="#" onclick="showPage('auctions')">Açık Artırma</a></li>
+            <li><a href="#" onclick="showPage('collection')">Koleksiyon</a></li>
+            <li><a href="#" onclick="showPage('nftinfo')">NFT Nedir?</a></li>
+            <li><a href="#" onclick="showPage('about')">Hakkımızda</a></li>
+            <li><a href="#" onclick="showPage('contact')">İletişim</a></li>
+            <li><button class="btn-connect" onclick="connectWallet()">Cüzdan Bağla</button></li>
+        </ul>
+    </nav>
+
+    <main id="home" class="page active">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Dijital Sanatın <span>Zirvesi</span></h1>
+                <p>Maymunlar, Arabalar ve Glitch sanatıyla dolu eşsiz bir evrene hoş geldiniz.</p>
+                <button class="btn-primary" onclick="showPage('collection')">Koleksiyonu Gör</button>
+            </div>
+        </header>
+    </main>
+
+    <section id="auctions" class="page">
+        <div class="container">
+            <h2 class="section-title">Canlı Açık Artırma</h2>
+            <div class="auction-status-card">
+                <div class="pulse-icon">!</div>
+                <h3>Güncel açık arttırma bulunmamaktadır.</h3>
+                <p>Gelecek hafta başlayacak olan "Cyber-Car" serisi için takipte kalın.</p>
+                <button class="btn-secondary" onclick="showPage('contact')">Bilgi Al</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="page">
+        <div class="container">
+            <h2 class="section-title">Koleksiyonlar</h2>
+            <div class="filter-bar">
+                <button onclick="filterNFT('all')">Hepsi</button>
+                <button onclick="filterNFT('ape')">Maymunlar</button>
+                <button onclick="filterNFT('car')">Arabalar</button>
+                <button onclick="filterNFT('error')">Error Art</button>
+                <button onclick="filterNFT('nasa')">NASA</button>
+            </div>
+            <div class="nft-grid" id="nftGrid"></div>
+        </div>
+    </section>
+
+    <!-- NFT Nedir Sayfası -->
+    <section id="nftinfo" class="page">
+        <div class="container">
+            <h2 class="section-title">NFT <span style="color:var(--primary)">Nedir?</span></h2>
+
+            <div class="nft-intro-card">
+                <div class="nft-intro-icon">🪙</div>
+                <p class="nft-intro-text">
+                    NFT, <strong>"Non-Fungible Token"</strong> yani <strong>"Değiştirilemez Token"</strong> olarak çevrilen, dijital bir varlığın benzersiz olduğunu ve birbirinin yerine geçemeyeceğini onaylayan dijital bir sertifikadır.
+                </p>
+                <p class="nft-intro-text" style="margin-top:16px;">
+                    Basit bir ifadeyle; internetteki bir görselin, videonun veya ses dosyasının <strong>"aslının"</strong> kime ait olduğunu gösteren <span class="highlight-text">dijital bir tapu</span> gibidir.
+                </p>
+            </div>
+
+            <h3 class="nft-features-title">NFT'nin Temel Özellikleri</h3>
+            <p class="nft-features-sub">NFT'leri diğer dijital varlıklardan (örneğin Bitcoin'den) ayıran temel farklar şunlardır:</p>
+
+            <div class="nft-features-grid">
+                <div class="nft-feature-card">
+                    <div class="feature-icon">✦</div>
+                    <h4>Benzersizlik <span style="color:#666;font-weight:400;font-size:0.85rem">(Unique)</span></h4>
+                    <p>Her NFT'nin kendine has bir kimlik numarası (ID) vardır. Bir NFT'den dünyada sadece bir tane bulunur.</p>
+                </div>
+                <div class="nft-feature-card">
+                    <div class="feature-icon">⬡</div>
+                    <h4>Bölünemezlik</h4>
+                    <p>Bir Bitcoin'in yarısını alabilirsiniz, ancak bir NFT'nin yarısını satın alamazsınız; o bir bütündür.</p>
+                </div>
+                <div class="nft-feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Kopyalanamazlık</h4>
+                    <p>Bir NFT'nin içeriği kopyalanabilir veya ekran görüntüsü alınabilir, ancak <strong>sahiplik kaydı kopyalanamaz</strong>. Bu kayıt blockchain (blokzinciri) üzerinde tutulur.</p>
+                </div>
+            </div>
+
+            <!-- NFT Ne İşe Yarar -->
+            <h3 class="nft-features-title" style="margin-top:20px;">NFT Ne İşe <span style="color:var(--secondary)">Yarar?</span></h3>
+            <p class="nft-features-sub">NFT teknolojisi pek çok farklı alanda kullanılmaktadır:</p>
+
+            <div class="nft-usecases">
+                <div class="usecase-item">
+                    <span class="usecase-icon">🎨</span>
+                    <div>
+                        <h4>Dijital Sanat</h4>
+                        <p>Sanatçılar, eserlerini doğrudan alıcılara satabilir ve her el değiştirmede telif hakkı kazanmaya devam edebilirler.</p>
+                    </div>
+                </div>
+                <div class="usecase-item">
+                    <span class="usecase-icon">🃏</span>
+                    <div>
+                        <h4>Koleksiyon Nesneleri</h4>
+                        <p>Dijital kartlar (örneğin NBA Top Shot) veya oyun içi eşyalar koleksiyon değeri taşır.</p>
+                    </div>
+                </div>
+                <div class="usecase-item">
+                    <span class="usecase-icon">🎵</span>
+                    <div>
+                        <h4>Müzik ve Video</h4>
+                        <p>Albümler veya özel video klipler NFT olarak yayınlanabilir; sanatçılar aracısız gelir elde eder.</p>
+                    </div>
+                </div>
+                <div class="usecase-item">
+                    <span class="usecase-icon">🌐</span>
+                    <div>
+                        <h4>Metaverse</h4>
+                        <p>Sanal dünyalardaki arsaların veya kıyafetlerin sahipliği NFT ile belgelenir.</p>
+                    </div>
+                </div>
+                <div class="usecase-item">
+                    <span class="usecase-icon">🎟️</span>
+                    <div>
+                        <h4>Biletleme</h4>
+                        <p>Etkinlik biletlerinin sahtesinin yapılmasını önlemek için NFT kullanılabilir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nasıl Çalışır -->
+            <div class="nft-how-card">
+                <h3>⚙️ Nasıl Çalışır?</h3>
+                <p>NFT'ler genellikle <strong>Ethereum</strong> blokzinciri üzerinde işlem görür, ancak <strong>Solana</strong> ve <strong>Polygon</strong> gibi diğer ağlar da yaygınlaşmıştır. Bir varlık NFT'ye dönüştürüldüğünde (bu işleme <span class="highlight-text">"Minting"</span> denir), o varlığın geçmişi, sahibi ve teknik bilgileri blokzincirine silinmez bir şekilde kazınır.</p>
+                <div class="nft-warning">
+                    <span>⚠️</span>
+                    <p><strong>Önemli Not:</strong> NFT satın almak, o eserin telif haklarını aldığınız anlamına gelmeyebilir. Çoğu durumda sadece o dijital kopyanın "mülkiyetine" sahip olursunuz; kullanım hakları sanatçıda kalmaya devam eder.</p>
+                </div>
+            </div>
+
+            <div class="nft-cta-strip">
+                <p>Dijital sanatın geleceğine katılmaya hazır mısın?</p>
+                <button class="btn-primary" onclick="showPage('collection')">Koleksiyona Gözat</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page">
+        <div class="container">
+            <h2 class="section-title">Hakkı<span style="color:var(--primary)">mızda</span></h2>
+
+            <div class="about-hero-text">
+                <p>NORYXNFT, 2024 yılında dijital sanatın gücüne inanan bir grup yaratıcı ve teknoloji tutkunusu tarafından kuruldu. Misyonumuz basit: <span class="highlight-text">sanatçıyla koleksiyoncuyu, aracısız ve güvenli bir şekilde buluşturmak.</span></p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-box">
+                    <div class="about-icon">🎨</div>
+                    <h3>Sınırsız Sanat</h3>
+                    <p>Fiziksel dünyanın sınırlarını dijital fırçalarla aşıyoruz. Her eser, bir sanatçının hikayesini blokzincire işler; zaman aşımsız ve silinmez biçimde.</p>
+                </div>
+                <div class="about-box">
+                    <div class="about-icon">🔐</div>
+                    <h3>Güvenli Ticaret</h3>
+                    <p>Tüm eserler 2026 standartlarında akıllı kontratlar ile korunmaktadır. Her işlem şeffaf, her sahiplik doğrulanabilir.</p>
+                </div>
+                <div class="about-box">
+                    <div class="about-icon">🌍</div>
+                    <h3>Global Topluluk</h3>
+                    <p>40'tan fazla ülkeden sanatçı ve koleksiyoncuyu bir araya getiren canlı bir ekosistem inşa ediyoruz. Sınır tanımayan bir pazar.</p>
+                </div>
+                <div class="about-box">
+                    <div class="about-icon">💡</div>
+                    <h3>Sanatçı Önce</h3>
+                    <p>Platformumuzda her satışın %90'ı doğrudan sanatçıya aktarılır. İkincil satışlarda da telif hakkı sanatçıyla kalır.</p>
+                </div>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Benzersiz Eser</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Ülkeden Koleksiyoncu</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">37.7</span>
+                    <span class="stat-label">ETH Toplam Hacim</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">%90</span>
+                    <span class="stat-label">Sanatçıya Giden Pay</span>
+                </div>
+            </div>
+
+            <div class="about-manifesto">
+                <p>"Dijital bir eserin değeri, onu tutan blokzinciri kadar kalıcı; onu yaratan sanatçının vizyonu kadar sınırsızdır."</p>
+                <span>— NORYXNFT Kurucu Ekibi</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page">
+        <div class="container">
+            <h2 class="section-title">Destek Merkezi</h2>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Mesajınız başarıyla iletildi!');">
+                <div class="form-group">
+                    <input type="text" placeholder="Adınız" required>
+                    <input type="email" placeholder="E-posta" required>
+                </div>
+                <textarea placeholder="NFT projeniz hakkında bize yazın..." rows="6"></textarea>
+                <button type="submit" class="btn-primary">Gönder</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
